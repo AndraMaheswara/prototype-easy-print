@@ -1,32 +1,41 @@
 # EasyPrint · Prototype
 
-Clickable prototype of the EasyPrint / Restu Ibu Print & Fotocopy design (18 screens).
-Plain static site: no build step, no dependencies.
+Clickable prototype of EasyPrint, the ordering & order-management system for
+Restu Ibu Print & Fotocopy. 44 screens. Plain static site: no build step, no dependencies.
 
 ```
-index.html      all 18 screens (inline SVG with real text) + clickable areas
-styles.css      layout, fonts, hover/hint effects, notification panel
-script.js       small router: splash timer, notification overlay, print, Esc
+index.html      all screens + popups + data
+styles.css      design tokens, components, layout
+script.js       router, popups, toasts, filters, account menu, mobile switch
 assets/fonts    Inter + Selawik (Segoe UI look-alike), subset woff2
 assets/img      logo, photo and background images
 ```
 
-## Run locally
-Open `index.html` in a browser, or serve the folder:
-`python -m http.server 8000` → http://localhost:8000
-
 ## Deploy to Vercel
-- **Drag & drop:** vercel.com → Add New → Project → drag this folder in → Deploy.
-- **GitHub:** push this folder to a repo → import it in Vercel →
-  Framework Preset: **Other**, Build Command: *(empty)*, Output Directory: `./` → Deploy.
-- **CLI:** `npm i -g vercel` then run `vercel` inside this folder.
+- Drag & drop: vercel.com → Add New → Project → drag this folder → Deploy.
+- GitHub: push the folder → import in Vercel → Framework Preset **Other**, no build command, output `./`.
+- CLI: `npm i -g vercel` then `vercel` inside this folder.
 
-## Using the prototype
-- Splash fills the window and moves to the landing page after ~2 seconds (or click it).
-- Headers stay pinned to the top while scrolling (landing, Tentang Kami, customer pages).
-- Login and Registrasi fields accept typing (no validation). Enter or the button continues.
-- Click buttons and links like in the real app. Clicking an empty area flashes everything that is clickable.
-- The **☰ Layar** button (bottom-right) jumps to any screen.
-- Login demo roles: *Pelanggan* → customer dashboard, *Admin* → admin dashboard, *Owner* → owner dashboard.
-- The bell / notification dot opens the notification panel. Close it with ✕, Esc or by clicking outside.
-- Each screen has its own URL, e.g. `/#dashboard`, `/#admin-kasir`, `/#owner-laporan`.
+## What's inside
+**Original Figma screens (18)** — shown pixel-exact, now with fixes: dates match order numbers,
+one product name (EasyPrint), full nav on the landing page, mail icon on login, visible
+"Bahan kritis" icon, separate customer/admin notifications.
+
+**New screens (26)**
+- Pelanggan: Katalog Layanan (filter + search), Detail Layanan (price table, estimate),
+  Buat Pesanan step 1 & 3, Pesanan Berhasil, Pesanan Saya (status tabs + empty state),
+  Pesanan Saya kosong, Tracking Ditolak (+ re-upload), Profil + account menu, Notifikasi pelanggan.
+- Akun & publik: Lupa password → Cek email → Atur ulang password, Cek Pesanan tanpa login + hasil, 404.
+- Admin: Detail & Verifikasi Pesanan, popup Tolak, Struk kasir (printable).
+- Owner: Supplier & Pasokan (+ purchase order), Riwayat Stok, Kelola Pengguna; popups for
+  Tambah/Edit Bahan, Tambah/Edit Layanan (BOM), Penyesuaian Stok, Hapus, Supplier, PO, Pengguna.
+- Mobile (auto when the window is < 760px wide): Login, Dashboard, Katalog, Pesanan Saya, Tracking.
+
+## Using it
+- **☰ Layar** (bottom-right) jumps to any screen, grouped by role.
+- Login demo roles: Pelanggan / Admin / Owner.
+- Forms accept typing; nothing is validated or saved. Buttons show a confirmation toast.
+- Clicking an empty spot on an original design screen flashes everything clickable.
+- Each screen has its own URL, e.g. `/#katalog`, `/#admin-detail`, `/#supplier`.
+
+All prices, names and numbers in the new screens are **example data**.
