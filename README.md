@@ -22,7 +22,9 @@ Open `index.html` in a browser, or serve the folder:
 - **CLI:** `npm i -g vercel` then run `vercel` inside this folder.
 
 ## Using the prototype
-- Splash moves to the landing page after ~2 seconds (or click it).
+- Splash fills the window and moves to the landing page after ~2 seconds (or click it).
+- Headers stay pinned to the top while scrolling (landing, Tentang Kami, customer pages).
+- Login and Registrasi fields accept typing (no validation). Enter or the button continues.
 - Click buttons and links like in the real app. Clicking an empty area flashes everything that is clickable.
 - The **☰ Layar** button (bottom-right) jumps to any screen.
 - Login demo roles: *Pelanggan* → customer dashboard, *Admin* → admin dashboard, *Owner* → owner dashboard.
